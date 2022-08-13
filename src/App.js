@@ -6,14 +6,29 @@ class App extends Component {
     super()
 
     this.state = {
-      string: 'Hello Christian',
+      monsters: [
+        {
+          name: 'Frankenstein',
+          id: 1,
+        },
+        {
+          name: 'Dracula',
+          id: 2,
+        },
+        {
+          name: 'Zombie',
+          id: 3,
+        },
+      ],
     }
   }
+
   render() {
     return (
       <div className="App">
-        <h1>{this.state.string}</h1>
-        <button onClick={() => this.setState({ string: 'Good morning Shriscrea8' })}>CHange text</button>
+        {this.state.monsters.map((monster) => (
+          <h1 key={monster.id}> {monster.name}</h1>
+        ))}
       </div>
     )
   }
